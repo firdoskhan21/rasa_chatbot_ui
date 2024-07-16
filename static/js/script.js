@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 include('./static/js/components/index.js');
 
 window.addEventListener('load', () => {
+  console.log(window.location.search)
   // initialization
   $(document).ready(() => {
     // Bot pop-up intro
