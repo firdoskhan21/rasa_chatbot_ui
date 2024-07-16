@@ -45,18 +45,10 @@ window.addEventListener('load', () => {
     // customActionTrigger();
   });
   // Toggle the chatbot screen
-  $("#profile_div").click(() => {
-    $(".profile_div").toggle();
-    $(".widget").toggle();
-  });
+  
 
   // clear function to clear the chat contents of the widget.
-  $("#clear").click(() => {
-    $(".chats").fadeOut("normal", () => {
-      $(".chats").html("");
-      $(".chats").fadeIn();
-    });
-  });
+
 
   // close function to close the widget.
   $("#close").click(() => {
