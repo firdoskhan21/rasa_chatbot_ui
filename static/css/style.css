@@ -450,7 +450,7 @@ div.content_data::-webkit-scrollbar {
 .cards {
   display: none;
   position: relative;
-  max-width: 300px;
+  max-width: 100%;
 }
 
 .cards_scroller {
