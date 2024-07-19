@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 include('./static/js/components/index.js');
 
 window.addEventListener('load', () => {
+  // get the id from here
   console.log(window.location.search)
   // initialization
   $(document).ready(() => {
