@@ -33,8 +33,6 @@ function getBotResponse(text) {
   return botResponse;
 }
 
-const { id: userId, user: task } = getQueryParams();
-
 function saveConversation(messages) {
   const formattedMessages = messages.map((message) => ({
     sender: message.sender,
@@ -49,7 +47,7 @@ function saveConversation(messages) {
     contentType: "application/json",
     data: JSON.stringify({
       userId: userId,
-      pattern_type: task,
+      pattern_type: task_name,
       is_dark_pattern: task !== "no_dark_pattern",
       messages: formattedMessages,
     }),
