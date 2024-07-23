@@ -9,7 +9,7 @@ function getQueryParams() {
   return params;
 }
 
-const { id: userId, task: task_name } = getQueryParams();
+const { id: userId, type: task_name } = getQueryParams();
 
 const action_name = "action_hello_world";
 const taskPorts =
