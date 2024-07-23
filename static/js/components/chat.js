@@ -7,16 +7,6 @@ function scrollToBottomOfResults() {
   terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
 }
 
-function getQueryParams() {
-  const params = {};
-  const queryString = window.location.search.slice(1);
-  const queries = queryString.split("&");
-  queries.forEach((query) => {
-    const [key, value] = query.split("=");
-    params[key] = decodeURIComponent(value);
-  });
-  return params;
-}
 
 
 /**
