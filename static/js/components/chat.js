@@ -34,13 +34,14 @@ function getBotResponse(text) {
 }
 
 function saveConversation(messages) {
+  console.log(messages,'messages!!')
   const formattedMessages = messages.map((message) => ({
     sender: message.sender,
     sender_id: userId,
     msg: message.msg,
     timestamp: message.timestamp,
   }));
-
+console.log(formattedMessages,'formattedMessages',task_name,userId)
   $.ajax({
     url: "http://localhost:5001/save_conversation",
     type: "POST",
@@ -48,7 +49,7 @@ function saveConversation(messages) {
     data: JSON.stringify({
       userId: userId,
       pattern_type: task_name,
-      is_dark_pattern: task !== "no_dark_pattern",
+      is_dark_pattern: !task_name.includes('darkpattern'),
       messages: formattedMessages,
     }),
     success: function (response) {
