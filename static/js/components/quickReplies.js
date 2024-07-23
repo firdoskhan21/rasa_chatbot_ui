@@ -43,12 +43,13 @@ function showQuickReplies(quickRepliesData) {
 
 // on click of quickreplies, get the payload value and send it to rasa
 $(document).on("click", ".quickReplies .chip", function () {
+    console.log(this.innerText)
     const text = this.innerText;
     const payload = this.getAttribute("data-payload");
     console.log("chip payload: ", this.getAttribute("data-payload"));
     setUserResponse(text);
-    send(payload);
-
+    send(text);
+console.log(text,'inside of quick replies')
     // delete the quickreplies
     $(".quickReplies").remove();
 });

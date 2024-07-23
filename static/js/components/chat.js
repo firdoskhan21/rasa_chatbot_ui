@@ -7,6 +7,18 @@ function scrollToBottomOfResults() {
   terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
 }
 
+function getQueryParams() {
+  const params = {};
+  const queryString = window.location.search.slice(1);
+  const queries = queryString.split("&");
+  queries.forEach((query) => {
+    const [key, value] = query.split("=");
+    params[key] = decodeURIComponent(value);
+  });
+  return params;
+}
+
+
 /**
  * Set user response on the chat screen
  * @param {String} message user message
@@ -29,6 +41,40 @@ function setUserResponse(message) {
 function getBotResponse(text) {
   botResponse = `<img class="botAvatar" src="./static/img/sara_avatar.png"/><span class="botMsg">${text}</span><div class="clearfix"></div>`;
   return botResponse;
+}
+
+const { id: userId, user: task } = getQueryParams();
+
+function saveConversation(messages) {
+  const formattedMessages = messages.map((message) => ({
+    sender: message.sender,
+    sender_id: userId,
+    msg: message.msg,
+    timestamp: message.timestamp,
+  }));
+
+  $.ajax({
+    url: "http://localhost:5001/save_conversation",
+    type: "POST",
+    contentType: "application/json",
+    data: JSON.stringify({
+      userId: userId,
+      pattern_type: task,
+      is_dark_pattern: task !== "no_dark_pattern",
+      messages: formattedMessages,
+    }),
+    success: function (response) {
+      console.log("Conversation saved successfully:", response);
+    },
+    error: function (xhr, status, error) {
+      console.error("Error saving conversation:", error);
+    },
+  });
+}
+
+function handleButtonClick(title, payload) {
+  setUserResponse(title);
+  send(payload, title);
 }
 
 /**
@@ -110,6 +156,7 @@ function setBotResponse(response) {
         }
 
         // check if the response contains "buttons"
+        console.log(response,'response')
         if (Object.hasOwnProperty.call(response[i], "buttons")) {
           if (response[i].buttons.length > 0) {
             addSuggestion(response[i].buttons);
@@ -215,7 +262,15 @@ function setBotResponse(response) {
           }
         }
       }
+      console.log(response)
       scrollToBottomOfResults();
+      saveConversation([
+        {
+          sender: "bot",
+          msg: response.map((res) => res.text || "").join(" "),
+          timestamp: new Date().toISOString(),
+        },
+      ]);
     }
     $(".usrInput").focus();
   }, 500);
@@ -226,36 +281,35 @@ function setBotResponse(response) {
  * @param {String} message user message
  */
 async function send(message) {
+  console.log(message)
+  const request_temp = {
+    sender: "user",
+    msg: message,
+    timestamp: new Date().toISOString(),
+  };
   await new Promise((r) => setTimeout(r, 2000));
   $.ajax({
     url: rasa_server_url,
     type: "POST",
     contentType: "application/json",
-    data: JSON.stringify({ message, sender: sender_id }),
+    data: JSON.stringify({ message, sender: userId }),
     success(botResponse, status) {
       console.log("Response from Rasa: ", botResponse, "\nStatus: ", status);
-
-      // if user wants to restart the chat and clear the existing chat contents
       if (message.toLowerCase() === "/restart") {
         $("#userInput").prop("disabled", false);
-
-        // if you want the bot to start the conversation after restart
-        // customActionTrigger();
         return;
       }
       setBotResponse(botResponse);
+      saveConversation([request_temp]);
     },
     error(xhr, textStatus) {
       if (message.toLowerCase() === "/restart") {
         $("#userInput").prop("disabled", false);
-        // if you want the bot to start the conversation after the restart action.
-        // actionTrigger();
-        // return;
+        return;
       }
-
-      // if there is no response from rasa server, set error bot response
       setBotResponse("");
       console.log("Error from bot end: ", textStatus);
+      saveConversation([request_temp]);
     },
   });
 }
@@ -415,6 +469,7 @@ $("#sendButton").on("click", (e) => {
   $(".usrInput").blur();
   $(".dropDownMsg").remove();
   setUserResponse(text);
+  console.log(text,'text')
   send(text);
   e.preventDefault();
   return false;
