@@ -13,11 +13,11 @@ const { id: userId, task: task_name } = getQueryParams();
 
 const action_name = "action_hello_world";
 const taskPorts =
-  task_name === "task1"
+  task_name === "task1_darkpattern"
     ? 5005
-    : task_name === "task2"
+    : task_name === "task2_darkpattern"
     ? 5006
-    : task_name === "task3"
+    : task_name === "task3_darkpattern"
     ? 5007
     : 5005;
 // const rasa_server_url = "http://34.224.98.239/task1/webhooks/rest/webhook";
