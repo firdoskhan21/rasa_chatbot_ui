@@ -43,7 +43,7 @@ function saveConversation(messages) {
   }));
 console.log(formattedMessages,'formattedMessages',task_name,userId)
   $.ajax({
-    url: "http://localhost:5001/api/save_conversation",
+    url: "http://localhost:5001/api/coversations/save_conversation",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
