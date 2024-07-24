@@ -58,4 +58,18 @@ window.addEventListener('load', () => {
     $(".widget").toggle();
     scrollToBottomOfResults();
   });
+
+ // Handle submit conversation button click
+ $("#submit-conversation").click(() => {
+  $(".widget").hide(); // Hide the chatbot
+  $(".completed-message").show(); // Show the completion message
+});
+
+// Ensure the chatbot appears again when iframe is rendered
+$(document).on('readystatechange', () => {
+  if (document.readyState === 'complete') {
+    $(".widget").show(); // Show the chatbot
+    $(".completed-message").hide(); // Hide the completion message
+  }
+});
 });

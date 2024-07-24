@@ -856,3 +856,21 @@ video:focus {
 .pdf_link a {
   color: #082567;
 }
+
+.end-conversation-button {
+  background-color: #0d6957;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.completed-message {
+  display: none;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  color: green;
+}
