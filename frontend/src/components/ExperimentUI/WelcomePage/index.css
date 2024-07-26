@@ -1,0 +1,84 @@
+/* WelcomeMsg.css */
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9f9f9;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #082567;
+  padding: 20px;
+}
+
+.welcome-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 80%;
+  width: 100%;
+  text-align: center;
+}
+
+.welcome-card h1 {
+  font-size: 24px;
+  color: #082567;
+}
+
+.welcome-card p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.card h2 {
+  font-size: 20px;
+  color: #082567;
+  margin-bottom: 10px;
+}
+
+.card p,
+.card li {
+  font-size: 16px;
+  color: #333;
+}
+
+.card ol,
+.card ul {
+  padding-left: 20px;
+}
+
+.start-button {
+  background-color: #082567;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.start-button:hover {
+  background-color: #8649ab;
+}
+
+a {
+  color: #082567;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

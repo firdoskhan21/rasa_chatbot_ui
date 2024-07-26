@@ -1,0 +1,55 @@
+/* .ueq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .ueq-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .ueq-container p {
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  
+  .ueq-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .ueq-item span {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .ueq-item label {
+    margin: 0 5px;
+  }
+  
+  .ueq-item input {
+    margin-right: 5px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #8649AB;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+   */
