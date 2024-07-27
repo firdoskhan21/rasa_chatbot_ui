@@ -1,0 +1,16 @@
+.task-description-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .task-description-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .completed-task {
+    background-color: #31a24b !important;
+    border-color: #c3e6cb;
+  }
+  

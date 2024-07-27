@@ -127,7 +127,7 @@ const SurveyForm = ({ getNextStep }) => {
         ...formData,
         userId,
       });
-      navigate("");
+      navigate(getNextStep());
     } catch (error) {
       console.error("Error submitting feedback data:", error);
     }
@@ -148,7 +148,7 @@ const SurveyForm = ({ getNextStep }) => {
               >
                 <label>
                   <span className="question-number">{index + 1} ➔</span>{" "}
-                  {question.label}
+                  {question.label} *
                   {question.type === "select" ? (
                     <select
                       name={question.name}
@@ -199,7 +199,7 @@ const SurveyForm = ({ getNextStep }) => {
               <button
                 type="submit"
                 className="submit-button"
-                onClick={navigate(getNextStep())}
+                onClick={handleSubmit}
               >
                 OK <span className="submit-instructions">press Enter ↵</span>
               </button>

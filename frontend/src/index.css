@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 1000;
+  margin-bottom: 20px;
+}

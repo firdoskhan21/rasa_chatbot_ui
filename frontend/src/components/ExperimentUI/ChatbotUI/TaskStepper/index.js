@@ -1,12 +1,19 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { taskDescriptions } from "../../../../constants";
+import "./index.css"; // Import the CSS file for styling
 
-const TaskDescription = ({ task, user, handleTaskChange }) => {
+const TaskDescription = ({ task, user, handleTaskChange, completedTasks }) => {
   return (
     <Box>
-      <div key={"desc"} className="task-description-item">
-        <h1 className="typeform-title">{taskDescriptions[task].title}</h1>
+      <div key={"desc"} className="task-description-item ">
+        <h1
+          className={`typeform-title ${
+            completedTasks.includes(task) ? "completed-task" : ""
+          }`}
+        >
+          {taskDescriptions[task].title}
+        </h1>
         <p className="typeform-description">
           {taskDescriptions[task].description}
         </p>
@@ -21,12 +28,18 @@ const TaskDescription = ({ task, user, handleTaskChange }) => {
             .map((task, index) => (
               <div
                 key={index}
-                className="task-description-item"
+                className={`task-description-item ${
+                  completedTasks.includes(task) ? "completed-task" : ""
+                }`}
                 onClick={() => {
                   handleTaskChange(task);
                 }}
               >
-                <div className="typeform-title">
+                <div
+                  className={`typeform-title  ${
+                    completedTasks.includes(task) ? "completed-task" : ""
+                  }`}
+                >
                   {taskDescriptions[task].title}
                 </div>
               </div>

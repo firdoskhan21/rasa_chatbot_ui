@@ -18,7 +18,7 @@ import DemographicDataForm from "./components/ExperimentUI/DemographicDataForm";
 import ChatbotInteraction from "./components/ExperimentUI/ChatbotUI";
 import SurveyForm from "./components/ExperimentUI/SurveyForm";
 import ThankYouPage from "./components/ExperimentUI/ThankYouPage";
-import UEQ from "./components/ExperimentUI/UEQForm"; 
+import UEQ from "./components/ExperimentUI/UEQForm";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import TaskDescription from "./components/ExperimentUI/TaskDescription";
@@ -31,7 +31,7 @@ const componentMap = {
   "demographic-form": DemographicDataForm,
   "task-description": TaskDescription,
   "chatbot-interaction": ChatbotInteraction,
-  "user-experience-survey": UEQ,  // Add UEQ to component map
+  "user-experience-survey": UEQ, // Add UEQ to component map
   "feedback-survey": SurveyForm,
   thankyou: ThankYouPage,
 };
@@ -94,6 +94,10 @@ const App = () => {
               marginTop: isAuthenticated && isAdmin ? "64px" : null,
             }}
           >
+            <div className="sticky-header">
+              Please do not refresh your browser window while in the middle of
+              the experiment survey.
+            </div>
             {isAuthenticated && isAdmin ? (
               <Navbar onLogout={handleLogout} />
             ) : null}
@@ -124,13 +128,15 @@ const App = () => {
                 return (
                   <>
                     {step === "chatbot-interaction" ? (
-                      <Route
-                        key={index}
-                        path={`/user/step-chatbot-interaction/:task`} // +2 because step-1 is WelcomePage and step-thankyou is ThankYouPage
-                        element={
-                          <Component getNextStep={() => getNextStep(step)} />
-                        }
-                      />
+                      <>
+                        <Route
+                          key={index}
+                          path={`/user/step-chatbot-interaction/:task`} // +2 because step-1 is WelcomePage and step-thankyou is ThankYouPage
+                          element={
+                            <Component getNextStep={() => getNextStep(step)} />
+                          }
+                        />
+                      </>
                     ) : (
                       <Route
                         key={index}

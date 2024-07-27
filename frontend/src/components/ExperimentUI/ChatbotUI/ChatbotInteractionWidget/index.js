@@ -3,6 +3,7 @@ import axios from "axios";
 import "./index.css";
 import { useNavigate } from "react-router-dom";
 import { server_endpoints } from "../../../../constants";
+import html2canvas from "html2canvas";
 
 const ChatbotInteractionWidget = ({ task, userId, getNextStep }) => {
   console.log("task", task);
@@ -48,18 +49,6 @@ const ChatbotInteractionWidget = ({ task, userId, getNextStep }) => {
     }
   };
 
-  const handleProductSelect = (product) => {
-    setProductSelected(true);
-    const request_temp = {
-      sender: "user",
-      sender_id: userId,
-      msg: product.name,
-    };
-    setChat((chat) => [...chat, request_temp]);
-    setBotTyping(true);
-    rasaAPI(userId, product.name);
-  };
-
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     const request_temp = {
@@ -97,6 +86,7 @@ const ChatbotInteractionWidget = ({ task, userId, getNextStep }) => {
     <iframe
       width="100%"
       height="100%"
+      // src="https://cdn.botpress.cloud/webchat/v2/shareable.html?botId=24919228-8fdc-4dfc-8546-3895e52f26cc"
       src={`https://firdoskhan21.github.io/rasa_chatbot_ui?id=${userId}&type=${task}`}
     ></iframe>
 
@@ -169,4 +159,5 @@ const ChatbotInteractionWidget = ({ task, userId, getNextStep }) => {
   );
 };
 
-export default ChatbotInteractionWidget;
+
+export default ChatbotInteractionWidget
