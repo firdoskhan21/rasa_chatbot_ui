@@ -7,8 +7,6 @@ function scrollToBottomOfResults() {
   terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
 }
 
-
-
 /**
  * Set user response on the chat screen
  * @param {String} message user message
