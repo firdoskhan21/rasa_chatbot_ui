@@ -43,7 +43,7 @@ function saveConversation(messages) {
   }));
 console.log(formattedMessages,'formattedMessages',task_name,userId)
   $.ajax({
-    url: "http://localhost:5001/api/coversations/save_conversation",
+    url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
@@ -311,7 +311,7 @@ async function send(message) {
 // eslint-disable-next-line no-unused-vars
 function actionTrigger() {
   $.ajax({
-    url: `http://localhost:5005/conversations/${sender_id}/execute`,
+    url: `https://rasa-chatbot-ui.onrender.com/api/conversations/${sender_id}/execute`,
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify({
