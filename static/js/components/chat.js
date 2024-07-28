@@ -1,4 +1,3 @@
-let conversation = [];
 /**
  * scroll to the bottom of the chats after new message has been added to chat
  */
@@ -7,6 +6,7 @@ function scrollToBottomOfResults() {
   const terminalResultsDiv = document.getElementById("chats");
   terminalResultsDiv.scrollTop = terminalResultsDiv.scrollHeight;
 }
+var conversation = [];
 
 /**
  * Set user response on the chat screen
@@ -41,7 +41,7 @@ function saveConversation(messages) {
     timestamp: message.timestamp,
   }));
 const singleMsg=formattedMessages[0]
-  conversation= conversation.push(singleMsg)
+   conversation.push(singleMsg)
   console.log(formattedMessages[0], "formattedMessages", task_name, userId,conversation);
   $.ajax({
     url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
