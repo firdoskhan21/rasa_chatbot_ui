@@ -102,7 +102,7 @@ const UEQ = ({ getNextStep }) => {
             ))}
           </tbody>
         </table>
-        <button type="submit">Submit</button>
+        <button type="submit" style={{float:'right'}}>Submit</button>
       </form>
     </div>
   );

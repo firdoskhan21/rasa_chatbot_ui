@@ -3,11 +3,13 @@
 const mongoose = require("mongoose");
 
 const ueqSchema = new mongoose.Schema({
+  userId: { type: String, required: true },
   responses: {
     type: Map,
     of: Number,
     required: true,
   },
+
   timestamp: {
     type: Date,
     default: Date.now,
