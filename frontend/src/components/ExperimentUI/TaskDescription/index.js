@@ -4,8 +4,8 @@ import { taskDescriptions } from "../../../constants";
 import axios from "axios";
 import "./index.css";
 import { server_endpoints } from "../../../constants";
-
-const TaskDescription = ({getNextStep}) => {
+import { Card, CardContent, Typography } from "@mui/material";
+const TaskDescription = ({ getNextStep }) => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
 
@@ -37,7 +37,18 @@ const TaskDescription = ({getNextStep}) => {
 
   return (
     <>
+    <Card className="instruction-card" style={{background:"#d7d7d7"}}>
+          <CardContent>
+            <Typography variant="heading" component="h6">
+              Below are the three tasks assigned to you. Please proceed by
+              clicking "Start Task" on any of the task cards and start by reading the task
+              description. These are very simple tasks and easier for you to
+              complete with the help of Chatbots.
+            </Typography>
+          </CardContent>
+        </Card>
       <div className="task-description-container">
+        
         {tasks.length > 0 ? (
           <>
             {tasks.map((task, index) => (
@@ -48,7 +59,12 @@ const TaskDescription = ({getNextStep}) => {
                 <p className="typeform-description">
                   {taskDescriptions[task].description}
                 </p>
-                <button onClick={()=>{handleStart(task)}} className="task-submit-button">
+                <button
+                  onClick={() => {
+                    handleStart(task);
+                  }}
+                  className="task-submit-button"
+                >
                   Start Task
                 </button>
               </div>
