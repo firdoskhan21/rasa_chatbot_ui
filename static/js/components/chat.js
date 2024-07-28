@@ -257,7 +257,7 @@ function setBotResponse(response) {
         msg: res.text || "",
         timestamp: new Date().toISOString(),
       }));
-      conversation = botMessagesToSave.concat(botMessages);
+      conversation = conversation.concat(botMessagesToSave);
       console.log(conversation)
       saveConversation(conversation);
     }
