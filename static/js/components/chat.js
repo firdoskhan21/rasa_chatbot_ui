@@ -1,3 +1,4 @@
+let conversation = [];
 /**
  * scroll to the bottom of the chats after new message has been added to chat
  */
@@ -32,14 +33,14 @@ function getBotResponse(text) {
 }
 
 function saveConversation(messages) {
-  console.log(messages,'messages!!')
+  console.log(messages, "messages!!");
   const formattedMessages = messages.map((message) => ({
     sender: message.sender,
     sender_id: userId,
     msg: message.msg,
     timestamp: message.timestamp,
   }));
-console.log(formattedMessages,'formattedMessages',task_name,userId)
+  console.log(formattedMessages, "formattedMessages", task_name, userId);
   $.ajax({
     url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
     type: "POST",
@@ -47,7 +48,7 @@ console.log(formattedMessages,'formattedMessages',task_name,userId)
     data: JSON.stringify({
       userId: userId,
       pattern_type: task_name,
-      is_dark_pattern: !task_name.includes('darkpattern'),
+      is_dark_pattern: !task_name.includes("darkpattern"),
       messages: formattedMessages,
     }),
     success: function (response) {
@@ -143,7 +144,7 @@ function setBotResponse(response) {
         }
 
         // check if the response contains "buttons"
-        console.log(response,'response')
+        console.log(response, "response");
         if (Object.hasOwnProperty.call(response[i], "buttons")) {
           if (response[i].buttons.length > 0) {
             addSuggestion(response[i].buttons);
@@ -249,16 +250,17 @@ function setBotResponse(response) {
           }
         }
       }
-      console.log(response)
+      console.log(response);
       scrollToBottomOfResults();
-      saveConversation([
-        {
-          sender: "bot",
-          msg: response.map((res) => res.text || "").join(" "),
-          timestamp: new Date().toISOString(),
-        },
-      ]);
+      const botMessagesToSave = response.map((res) => ({
+        sender: "bot",
+        msg: res.text || "",
+        timestamp: new Date().toISOString(),
+      }));
+      conversation = botMessagesToSave.concat(botMessages);
+      saveConversation(conversation);
     }
+
     $(".usrInput").focus();
   }, 500);
 }
@@ -268,7 +270,7 @@ function setBotResponse(response) {
  * @param {String} message user message
  */
 async function send(message) {
-  console.log(message)
+  console.log(message);
   const request_temp = {
     sender: "user",
     msg: message,
@@ -456,7 +458,7 @@ $("#sendButton").on("click", (e) => {
   $(".usrInput").blur();
   $(".dropDownMsg").remove();
   setUserResponse(text);
-  console.log(text,'text')
+  console.log(text, "text");
   send(text);
   e.preventDefault();
   return false;
