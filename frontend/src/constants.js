@@ -16,26 +16,26 @@ Hint: \n
     title: "Cancel Internet Service Subscription",
     description: `
     You have subscried to an yearly pack Internet subscription and now you want to cancel your internet service subscription after using it for 1 month. 
-    Engage with the chatbot and attempt to cancel your subscription. Below are some examples on how you can start the conversation.\n
-    
+    The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n
     Hint: \n
     1. Inform the chatbot that you want to cancel your subscription.\n
-    2. When asked for the reason, provide your explanation and follow the instructions to complete the task. \n`,
+    2. When asked for the reason, provide your reason and follow the instructions to complete the task. \n`,
   },
   task2_darkpattern: {
     type: "Account Deletion (Cofirmshaming- Social Engineering)",
     internal_pattern: "confirmshaming-social_engineering",
     title: "Account Deletion",
     description: `
-You want to delete your account on a Health care application to do that ask help from the chatbot.
-`,
+You want to delete your account on a Health care application. The reason for your account deletion is that you dont need it anymore and hence want to delete it.
+Try to get help from the Chatbot to delete your account.`,
   },
   task2_regular: {
     type: "Account Deletion (Regular)",
     internal_pattern: "confirmshaming-social_engineering-regular",
     title: "Account Deletion",
     description: `
-You want to delete your account on a Health care application to do that ask help from the chatbot.
+    You want to delete your account on a Health care application. The reason for your account deletion is that you dont need it anymore and hence want to delete it.
+    Try to get help from the Chatbot to delete your account.
 `,
   },
 
@@ -44,12 +44,7 @@ You want to delete your account on a Health care application to do that ask help
     type: "Forced Action (Including Subtle Nagging)",
     title: "Update Email Address with the Help of Chatbot",
     description: `
-
-You need specific help with your account that is on a website and to do that you need to initiate a coversation with the chatbot for support. 
-The chatbot will assist you in managing your account.\n
-
-Ask for help with your account mainly to changing email address and phone number.\n
-After completing the coversation click 'Submit coversation'.
+Use the Chatbot to update your Email address of your Account with an E-commerce site.
 `,
   },
   task3_regular: {
@@ -57,12 +52,7 @@ After completing the coversation click 'Submit coversation'.
     internal_pattern: "nagging-forced_action-regular",
     title: "Update Email Address with the Help of Chatbot",
     description: `
-    You need specific help with your account that is on a website and to do that you need to initiate a coversation with the chatbot for support. 
-    The chatbot will assist you in managing your account.\n
-    
-    Hint:
-    Ask for help with your account mainly to change email address and phone number.\n
-    After completing the coversation click 'Submit coversation'.`,
+    Use the Chatbot to update your Email address of your Account with an E-commerce site.`,
   },
 };
 

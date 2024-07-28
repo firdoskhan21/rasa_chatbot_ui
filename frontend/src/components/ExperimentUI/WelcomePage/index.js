@@ -17,32 +17,32 @@ const WelcomeMsg = ({ getNextStep }) => {
         <p>
           Thank you for participating in this study on user interactions with
           chatbots. Your involvement is crucial in helping us understand how
-          different chatbot designs influence user behavior.
+          different chatbot designs influence user behavior. This experiment survey requires 15 min of your time.
         </p>
         <div className="card">
           <h2>Purpose of the Study:</h2>
           <p>
             We are investigating how chatbots can sometimes guide users towards
-            certain actions using design techniques known as "dark patterns."
-            Your interaction with the chatbot will help us gather insights on
-            this phenomenon.
+            certain actions, Your interaction with the chatbot will help us gather insights on
+            this phenomenon. Any other information regarding this study is restricted due to organization reasons.
           </p>
         </div>
         <div className="card">
           <h2>What to Expect:</h2>
           <ol>
             <li>
-              <strong>Task Assignment:</strong> You will be randomly assigned a
-              task to complete using the chatbot.
+              <strong>Task Assignment:</strong> You will be randomly assigned 3
+              tasks to complete using the chatbot.
             </li>
             <li>
               <strong>Chatbot Interaction:</strong> Engage with the chatbot to
               complete the assigned task. The chatbot will guide you through the
-              process.
+              process. Please remember this is a simulation experiment and please dont expect the chatbot to be very interactive in other matters. The Chatbot is designed for its specific usecase only.
             </li>
             <li>
-              <strong>Survey:</strong> After your interaction, you will be asked
-              to complete a short survey about your experience.
+              <strong>Surveys:</strong> After your interaction, you will be asked
+              to complete some short surveys about your experience. Please fill them all your inputs will help us improve our experiment setup.
+            
             </li>
           </ol>
         </div>
@@ -51,12 +51,12 @@ const WelcomeMsg = ({ getNextStep }) => {
           <ul>
             <li>
               <strong>Confidentiality:</strong> All your responses will be kept
-              confidential and used only for research purposes.
+              confidential and used only for research purposes. We dont ask for any personal information.
             </li>
             <li>
               <strong>Voluntary Participation:</strong> Your participation is
               voluntary, and you can withdraw from the study at any time without
-              any consequences.
+              any consequences. But if you participate we request you to complete the experiment till the end filling all the fields as all the fields are required.
             </li>
             <li>
               <strong>Anonymity:</strong> Any data collected will be anonymized
@@ -82,7 +82,7 @@ const WelcomeMsg = ({ getNextStep }) => {
           <p>
             If you have any questions before starting, feel free to reach out to
             us at{" "}
-            <a href="mailto:firdos.khan@gmail.com">firdos.khan@gmail.com</a>.
+            <a href="mailto:firdos.khan@gmail.com">firdos-khatoon.khan@s2021.tu-chemnitz.de</a>.
           </p>
         </div>
       </div>
