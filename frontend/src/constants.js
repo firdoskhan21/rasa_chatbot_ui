@@ -5,11 +5,10 @@ export const taskDescriptions = {
     title: "Cancel Internet Service Subscription",
     description: `
 You have subscried to an yearly pack Internet subscription and now you want to cancel your internet service subscription after using it for 1 month. 
-Engage with the chatbot and attempt to cancel your subscription. Below are some examples on how you can start the conversation.\n
-
+The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n
 Hint: \n
 1. Inform the chatbot that you want to cancel your subscription.\n
-2. When asked for the reason, provide your explanation and follow the instructions to complete the task. \n`,
+2. When asked for the reason, provide your reason and follow the instructions to complete the task. \n`,
   },
   task1_regular: {
     type: "Subscription Cancellation (Regular Scenario)",
@@ -26,7 +25,7 @@ Hint: \n
   task2_darkpattern: {
     type: "Account Deletion (Cofirmshaming- Social Engineering)",
     internal_pattern: "confirmshaming-social_engineering",
-    title: "Account Deletion on a Health tracking application",
+    title: "Account Deletion",
     description: `
 You want to delete your account on a Health care application to do that ask help from the chatbot.
 `,
@@ -34,7 +33,7 @@ You want to delete your account on a Health care application to do that ask help
   task2_regular: {
     type: "Account Deletion (Regular)",
     internal_pattern: "confirmshaming-social_engineering-regular",
-    title: "Account Deletion on a Health tracking application",
+    title: "Account Deletion",
     description: `
 You want to delete your account on a Health care application to do that ask help from the chatbot.
 `,
@@ -43,7 +42,7 @@ You want to delete your account on a Health care application to do that ask help
   task3_darkpattern: {
     internal_pattern: "nagging-forced_action",
     type: "Forced Action (Including Subtle Nagging)",
-    title: "Ask Help for your account",
+    title: "Update Email Address with the Help of Chatbot",
     description: `
 
 You need specific help with your account that is on a website and to do that you need to initiate a coversation with the chatbot for support. 
@@ -54,9 +53,9 @@ After completing the coversation click 'Submit coversation'.
 `,
   },
   task3_regular: {
-    type: "Ask Help for your account",
+    type: "Forced Action (Including Subtle Nagging) - Regular",
     internal_pattern: "nagging-forced_action-regular",
-    title: "Ask Help for your account",
+    title: "Update Email Address with the Help of Chatbot",
     description: `
     You need specific help with your account that is on a website and to do that you need to initiate a coversation with the chatbot for support. 
     The chatbot will assist you in managing your account.\n

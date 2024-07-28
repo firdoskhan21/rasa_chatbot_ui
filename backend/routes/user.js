@@ -3,28 +3,49 @@ const router = express.Router();
 const User = require("../models/User");
 const generateUserId = require("../utils/generateUserId");
 
-const tasks = [
-  "task1_darkpattern",
-  "task1_regular",
-  "task2_darkpattern",
-  "task2_regular",
-  "task3_darkpattern",
-  "task3_regular",
-];
+function assignTasks() {
+  // Define the task pool
+  const tasks = [
+    "task1_darkpattern",
+    "task1_regular",
+    "task2_darkpattern",
+    "task2_regular",
+    "task3_darkpattern",
+    "task3_regular",
+  ];
 
-// Function to assign tasks randomly to users
-const assignTasks = () => {
-  let taskAssignments = [];
+  // Shuffle the task pool
+  tasks.sort(() => 0.5 - Math.random());
 
-  for (let i = 0; i < tasks.length; i++) {
-    taskAssignments.push(tasks[i]);
+  // Assign tasks ensuring no repetition of the same task number
+  const assignedTasks = [];
+  const assignedTaskNumbers = new Set();
+  let darkPatternCount = 0;
+  let regularPatternCount = 0;
+
+  for (let task of tasks) {
+    const taskNumber = task.split("_")[0];
+    const taskType = task.split("_")[1];
+
+    if (
+      assignedTasks.length < 3 &&
+      !assignedTaskNumbers.has(taskNumber) &&
+      ((taskType === "darkpattern" && darkPatternCount < 2) ||
+        (taskType === "regular" && regularPatternCount < 2))
+    ) {
+      assignedTasks.push(task);
+      assignedTaskNumbers.add(taskNumber);
+      if (taskType === "darkpattern") darkPatternCount++;
+      if (taskType === "regular") regularPatternCount++;
+    }
+
+    if (assignedTasks.length === 3) break;
   }
 
-  // Shuffle the assignments
-  taskAssignments = taskAssignments.sort(() => Math.random() - 0.5);
+  return assignedTasks;
+}
 
-  return taskAssignments;
-};
+console.log(assignTasks());
 
 // Pre-compute the task assignments
 let precomputedAssignments = assignTasks();
