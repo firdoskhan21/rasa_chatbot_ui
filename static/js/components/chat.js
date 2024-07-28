@@ -34,13 +34,21 @@ function getBotResponse(text) {
 
 function saveConversation(messages) {
   console.log(messages, "messages!!");
-  conversation = conversation.push({
+  const formattedMessages = messages.map((message) => ({
     sender: message.sender,
     sender_id: userId,
     msg: message.msg,
     timestamp: message.timestamp,
-  });
-  console.log(formattedMessages, "formattedMessages", task_name, userId);
+  }));
+
+  conversation = conversation.push(formattedMessages[0]);
+  console.log(
+    formattedMessages,
+    "formattedMessages",
+    task_name,
+    userId,
+    conversation
+  );
   $.ajax({
     url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
     type: "POST",
@@ -252,14 +260,13 @@ function setBotResponse(response) {
       }
       console.log(response);
       scrollToBottomOfResults();
-      const botMessagesToSave = response.map((res) => ({
-        sender: "bot",
-        msg: res.text || "",
-        timestamp: new Date().toISOString(),
-      }));
-      conversation = conversation.concat(botMessagesToSave);
-      console.log(conversation);
-      saveConversation(conversation);
+      saveConversation([
+        {
+          sender: "bot",
+          msg: response.map((res) => res.text || "").join(" "),
+          timestamp: new Date().toISOString(),
+        },
+      ]);
     }
 
     $(".usrInput").focus();
