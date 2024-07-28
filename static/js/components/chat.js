@@ -34,14 +34,15 @@ function getBotResponse(text) {
 
 function saveConversation(messages) {
   console.log(messages, "messages!!");
-  const formattedMessages = messages.map((message) => ({
-    sender: message.sender,
-    sender_id: userId,
-    msg: message.msg,
-    timestamp: message.timestamp,
-  }));
+  conversation = conversation.push(
+    messages.map((message) => ({
+      sender: message.sender,
+      sender_id: userId,
+      msg: message.msg,
+      timestamp: message.timestamp,
+    }))
+  );
 
-  conversation = conversation.push(formattedMessages[0]);
   console.log(
     formattedMessages,
     "formattedMessages",
