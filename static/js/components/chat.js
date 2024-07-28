@@ -258,6 +258,7 @@ function setBotResponse(response) {
         timestamp: new Date().toISOString(),
       }));
       conversation = botMessagesToSave.concat(botMessages);
+      console.log(conversation)
       saveConversation(conversation);
     }
 
