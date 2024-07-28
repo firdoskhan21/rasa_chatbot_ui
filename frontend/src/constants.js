@@ -5,10 +5,7 @@ export const taskDescriptions = {
     title: "Cancel Internet Service Subscription",
     description: `
 You have subscried to an yearly pack Internet subscription and now you want to cancel your internet service subscription after using it for 1 month. 
-The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n
-Hint: \n
-1. Inform the chatbot that you want to cancel your subscription.\n
-2. When asked for the reason, provide your reason and follow the instructions to complete the task. \n`,
+The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n`,
   },
   task1_regular: {
     type: "Subscription Cancellation (Regular Scenario)",
@@ -16,10 +13,7 @@ Hint: \n
     title: "Cancel Internet Service Subscription",
     description: `
     You have subscried to an yearly pack Internet subscription and now you want to cancel your internet service subscription after using it for 1 month. 
-    The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n
-    Hint: \n
-    1. Inform the chatbot that you want to cancel your subscription.\n
-    2. When asked for the reason, provide your reason and follow the instructions to complete the task. \n`,
+    The reasong for cancelation is the high cost of usage that you have faced in the last month. Engage with the chatbot and attempt to cancel your subscription.  Bay saying the reason that you find it expensing. Below are some examples on how you can start the conversation.\n`,
   },
   task2_darkpattern: {
     type: "Account Deletion (Cofirmshaming- Social Engineering)",
@@ -59,7 +53,7 @@ Use the Chatbot to update your Email address of your Account with an E-commerce 
 // Ensure to update your flow in the backend database to include these new tasks as well.
 
 export const server_endpoints = {
-  // backend_server: "http://localhost:5001/api",
-  backend_server: "https://rasa-chatbot-ui.onrender.com/api",
+  backend_server: "http://localhost:5001/api",
+  // backend_server: "https://rasa-chatbot-ui.onrender.com/api",
   rasa_chatbot_uri: "https://firdoskhan21.github.io/rasa_chatbot_ui",
 };
