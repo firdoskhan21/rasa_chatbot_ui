@@ -6,7 +6,8 @@ const UEQ = require('../models/UEQResponse'); // Mongoose model
 
 router.post('/', async (req, res) => {
   try {
-    const ueqResponse = new UEQ(req.body);
+    const { userId, responses } = req.body;
+    const ueqResponse = new UEQ({userId,responses});
     await ueqResponse.save();
     res.status(201).send({ message: 'UEQ response saved successfully' });
   } catch (error) {
