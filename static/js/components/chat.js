@@ -34,12 +34,12 @@ function getBotResponse(text) {
 
 function saveConversation(messages) {
   console.log(messages, "messages!!");
-  const formattedMessages = messages.map((message) => ({
+  conversation = conversation.push({
     sender: message.sender,
     sender_id: userId,
     msg: message.msg,
     timestamp: message.timestamp,
-  }));
+  });
   console.log(formattedMessages, "formattedMessages", task_name, userId);
   $.ajax({
     url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
@@ -49,7 +49,7 @@ function saveConversation(messages) {
       userId: userId,
       pattern_type: task_name,
       is_dark_pattern: !task_name.includes("darkpattern"),
-      messages: formattedMessages,
+      messages: conversation,
     }),
     success: function (response) {
       console.log("Conversation saved successfully:", response);
@@ -258,7 +258,7 @@ function setBotResponse(response) {
         timestamp: new Date().toISOString(),
       }));
       conversation = conversation.concat(botMessagesToSave);
-      console.log(conversation)
+      console.log(conversation);
       saveConversation(conversation);
     }
 
