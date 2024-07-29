@@ -53,7 +53,7 @@ Use the Chatbot to update your Email address of your Account with an E-commerce 
 // Ensure to update your flow in the backend database to include these new tasks as well.
 
 export const server_endpoints = {
-  backend_server: "http://localhost:5001/api",
-  // backend_server: "https://rasa-chatbot-ui.onrender.com/api",
+  // backend_server: "http://localhost:5001/api",
+  backend_server: "https://rasa-chatbot-ui.onrender.com/api",
   rasa_chatbot_uri: "https://firdoskhan21.github.io/rasa_chatbot_ui",
 };
