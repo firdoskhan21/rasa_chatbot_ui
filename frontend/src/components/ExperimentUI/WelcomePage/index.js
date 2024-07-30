@@ -12,7 +12,7 @@ const WelcomeMsg = ({ getNextStep }) => {
 
   return (
     <div className="welcome-container">
-      <div className="welcome-card">
+      {/* <div className="welcome-card">
         <h1>Welcome to Our Chatbot Experiment!</h1>
         <p>
           Thank you for participating in this study on user interactions with
@@ -85,7 +85,8 @@ const WelcomeMsg = ({ getNextStep }) => {
             <a href="mailto:firdos.khan@gmail.com">firdos-khatoon.khan@s2021.tu-chemnitz.de</a>.
           </p>
         </div>
-      </div>
+      </div> */}
+      <div style={{ color: "#fff" }}>The Experiment is closed.</div>
     </div>
   );
 };
