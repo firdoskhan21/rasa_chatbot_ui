@@ -94,10 +94,10 @@ const App = () => {
               marginTop: isAuthenticated && isAdmin ? "64px" : null,
             }}
           >
-            {/* <div className="sticky-header">
+            <div className="sticky-header">
               Please do not refresh your browser window while in the middle of
               the experiment survey.
-            </div> */}
+            </div>
             {isAuthenticated && isAdmin ? (
               <Navbar onLogout={handleLogout} />
             ) : null}

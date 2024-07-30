@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import { getUserSession } from "../../../utils/session";
 
 const questions = [
-  { id: 1, left: "annoying", right: "enjoyable" },
   { id: 2, left: "not understandable", right: "understandable" },
   { id: 3, left: "creative", right: "dull" },
   { id: 4, left: "easy to learn", right: "difficult to learn" },
@@ -15,7 +14,7 @@ const questions = [
   { id: 7, left: "not interesting", right: "interesting" },
   { id: 8, left: "unpredictable", right: "predictable" },
   { id: 9, left: "fast", right: "slow" },
-  { id: 10, left: "inventive", right: "conventional" },
+  { id: 10, left: "conventional", right: "inventive" },
   { id: 11, left: "obstructive", right: "supportive" },
   { id: 12, left: "good", right: "bad" },
   { id: 13, left: "complicated", right: "easy" },
@@ -102,7 +101,9 @@ const UEQ = ({ getNextStep }) => {
             ))}
           </tbody>
         </table>
-        <button type="submit" style={{float:'right'}}>Submit</button>
+        <button type="submit" style={{ float: "right" }}>
+          Submit
+        </button>
       </form>
     </div>
   );
