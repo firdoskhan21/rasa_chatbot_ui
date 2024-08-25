@@ -107,7 +107,7 @@ const Dashboard = () => {
         Admin Dashboard
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Age Distribution
@@ -131,7 +131,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Occupation Distribution
@@ -153,7 +153,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Internet Usage Hours
@@ -175,7 +175,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Gender Distribution
@@ -196,7 +196,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Education Level Distribution
@@ -217,7 +217,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Technology Comfort Level
@@ -238,7 +238,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Chatbot Platforms
@@ -260,7 +260,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Chatbot Usage Frequency
@@ -282,7 +282,7 @@ const Dashboard = () => {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={6}>
           <Paper elevation={3} style={{ padding: "16px" }}>
             <Typography variant="h6" gutterBottom>
               Dark Pattern Distribution
