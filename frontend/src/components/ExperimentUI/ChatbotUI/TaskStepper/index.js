@@ -17,7 +17,7 @@ const TaskDescription = ({ task, user, handleTaskChange, completedTasks }) => {
           {taskDescriptions[task].description}
         </p>
       </div>
-      <Typography variant="h5" gutterTop gutterBottom>
+      <Typography variant="h5" gutterTop gutterBottom style={{marginTop:'170px'}}>
         Remaining Tasks
       </Typography>
       {task ? (
