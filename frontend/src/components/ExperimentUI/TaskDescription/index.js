@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { taskDescriptions } from "../../../constants";
 import axios from "axios";
 import "./index.css";
-
+import { server_endpoints } from "../../../constants";
 
 const TaskDescription = ({getNextStep}) => {
   const navigate = useNavigate();
@@ -15,7 +15,6 @@ const TaskDescription = ({getNextStep}) => {
       if (userId) {
         try {
           const response = await axios.get(`${server_endpoints.backend_server}/api/users/${userId}`
-
           );
           setTasks(response.data.tasks);
         } catch (error) {
