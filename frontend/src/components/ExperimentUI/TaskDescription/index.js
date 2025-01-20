@@ -14,8 +14,8 @@ const TaskDescription = ({getNextStep}) => {
       const userId = localStorage.getItem("userId");
       if (userId) {
         try {
-          const response = await axios.get(
-            `http://localhost:5001/api/users/${userId}`
+          const response = await axios.get(`${server_endpoints.backend_server}/api/users/${userId}`
+
           );
           setTasks(response.data.tasks);
         } catch (error) {
