@@ -1,0 +1,26 @@
+.task-stepper-item {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.task-stepper-item:hover {
+  background-color: #f1f1f1;
+}
+
+.completed-task {
+  background-color: #31a24b !important;
+  border-color: #c3e6cb;
+}
+
+.remaining-task-title {
+  cursor: pointer;
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #082567;
+  padding: 10px;
+  border-radius: 4px;
+  color: #f1f1f1;
+}

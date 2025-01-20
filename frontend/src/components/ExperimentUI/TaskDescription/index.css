@@ -1,0 +1,18 @@
+.task-description-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+.task-description-item{
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.task-submit-button{
+    float: right;
+    /* position: absolute;
+    bottom: 10px;
+    right: 10px; */
+}
