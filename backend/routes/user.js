@@ -6,12 +6,12 @@ const generateUserId = require("../utils/generateUserId");
 function assignTasks() {
   // Define the task pool
   const tasks = [
-    "task1_darkpattern",
-    "task1_regular",
     "task2_darkpattern",
+    "task3_regular",
+    "task1_darkpattern",
     "task2_regular",
     "task3_darkpattern",
-    "task3_regular",
+    "task1_regular",
   ];
 
   // Shuffle the task pool

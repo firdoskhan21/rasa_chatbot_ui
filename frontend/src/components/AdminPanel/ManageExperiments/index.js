@@ -108,6 +108,7 @@ const ManageExperiments = () => {
       .post(`${server_endpoints.backend_server}/experiment_flow`, { flow: flowToSend })
       .then(() => console.log("Flow updated"))
       .catch((error) => console.error("Error updating flow:", error));
+      alert('The Experiment settings is saved successfully!!')
   };
 
   return (
