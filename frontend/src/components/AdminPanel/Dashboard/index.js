@@ -46,8 +46,8 @@ const Dashboard = () => {
   const [allLabels, setAllLabels] = useState([]);
   const colorPalette = [
     '#3f51b5', '#f50057', '#00bcd4', '#ffc107', '#8bc34a',
-    '#ff5722', '#9c27b0', '#e91e63', '#2196f3', '#ffeb3b',
-    '#4caf50', '#ff9800', '#cddc39', '#ff5252', '#03a9f4'
+    '#ff5322', '#9c57b0', '#e92e51', '#2196f3', '#ffeb3b',
+    '#4cbf50', '#ff2801', '#cddd39', '#fff252', '#03c9f2'
   ];
 
   // Dark Pattern and Regular Task Mapping
@@ -267,9 +267,74 @@ const Dashboard = () => {
             />
           </Paper>
         </Grid>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={3} style={{ padding: "16px", border: "1px solid lightgray" }}>
+            <Typography variant="h6" gutterBottom>
+              Chatbot Usage Frequency
+              <MuiToolTip title="Download Chatbot Usage Frequency">
+                <IconButton
+                  color="secondary"
+                  style={{ float: "right" }}
+                  onClick={() => downloadChart("chatbot_usage", "Chatbot-Usage")}
+                >
+                  <DownloadIcon />
+                </IconButton>
+              </MuiToolTip>
+            </Typography>
 
+            <Bar
+              id="chatbot_usage"
+              data={{
+                labels: Object.keys(chatbotUsageData),
+                datasets: [
+                  {
+                    data: Object.values(chatbotUsageData),
+                    backgroundColor: colorPalette.slice(0, Object.keys(chatbotUsageData).length),
+                    borderColor: colorPalette.slice(0, Object.keys(chatbotUsageData).length).map(color => color + 'CC'),
+                    borderWidth: 1,
+                  },
+                ],
+              }}
+              options={{
+                plugins: {
+                  legend: {
+                    display: true,
+                    labels: {
+                      filter: function (legendItem, data) {
+                        // Return false to remove the legend item if the label is undefined or empty
+                        return legendItem.text !== undefined && legendItem.text !== '';
+                      },
+                    },
+                  },
+                  tooltip: {
+                    callbacks: {
+                      label: function (context) {
+                        return `${context.label}: ${context.raw}`;
+                      }
+                    }
+                  }
+                },
+                scales: {
+                  x: {
+                    title: {
+                      display: true,
+                      text: 'Usage Frequency',
+                    },
+                  },
+                  y: {
+                    title: {
+                      display: true,
+                      text: 'Number of Users',
+                    },
+                    beginAtZero: true,
+                  },
+                },
+              }}
+            />
+          </Paper>
+        </Grid>
         {/* Education and Occupation Distribution */}
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={12}>
           <Paper elevation={3} style={{ padding: "16px", border: "1px solid lightgray" }}>
             <Typography variant="h6" gutterBottom>
               Education Distribution by Occupation
@@ -416,15 +481,15 @@ const Dashboard = () => {
                   {
                     label: 'Dark Pattern',
                     data: allLabels.map(label => darkPatternData.darkPattern[label] || 0),
-                    backgroundColor: colorPalette[2],
-                    borderColor: colorPalette[2] + 'CC',
+                    backgroundColor: colorPalette[1],
+                    borderColor: colorPalette[1] + 'CC',
                     borderWidth: 2,
                   },
                   {
                     label: 'Regular',
                     data: allLabels.map(label => darkPatternData.regular[label] || 0),
-                    backgroundColor: colorPalette[1],
-                    borderColor: colorPalette[1] + 'CC',
+                    backgroundColor: colorPalette[2],
+                    borderColor: colorPalette[2] + 'CC',
                     borderWidth: 2,
                   },
                 ],
@@ -466,7 +531,7 @@ const Dashboard = () => {
         </Grid>
 
         {/* Chatbot Platforms */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <Paper elevation={3} style={{ padding: "16px", border: "1px solid lightgray" }}>
             <Typography variant="h6" gutterBottom>
               Chatbot Platforms
@@ -572,76 +637,8 @@ const Dashboard = () => {
               }}
             />
           </Paper>
-        </Grid>
-        {/* Chatbot Usage Frequency */}
-        <Grid item xs={12} md={6}>
-          <Paper elevation={3} style={{ padding: "16px", border: "1px solid lightgray" }}>
-            <Typography variant="h6" gutterBottom>
-              Chatbot Usage Frequency
-              <MuiToolTip title="Download Chatbot Usage Frequency">
-                <IconButton
-                  color="secondary"
-                  style={{ float: "right" }}
-                  onClick={() => downloadChart("chatbot_usage", "Chatbot-Usage")}
-                >
-                  <DownloadIcon />
-                </IconButton>
-              </MuiToolTip>
-            </Typography>
-
-            <Bar
-              id="chatbot_usage"
-              data={{
-                labels: Object.keys(chatbotUsageData),
-                datasets: [
-                  {
-                    data: Object.values(chatbotUsageData),
-                    backgroundColor: colorPalette.slice(0, Object.keys(chatbotUsageData).length),
-                    borderColor: colorPalette.slice(0, Object.keys(chatbotUsageData).length).map(color => color + 'CC'),
-                    borderWidth: 1,
-                  },
-                ],
-              }}
-              options={{
-                plugins: {
-                  legend: {
-                    display: true,
-                    labels: {
-                      filter: function (legendItem, data) {
-                        // Return false to remove the legend item if the label is undefined or empty
-                        return legendItem.text !== undefined && legendItem.text !== '';
-                      },
-                    },
-                  },
-                  tooltip: {
-                    callbacks: {
-                      label: function (context) {
-                        return `${context.label}: ${context.raw}`;
-                      }
-                    }
-                  }
-                },
-                scales: {
-                  x: {
-                    title: {
-                      display: true,
-                      text: 'Usage Frequency',
-                    },
-                  },
-                  y: {
-                    title: {
-                      display: true,
-                      text: 'Number of Users',
-                    },
-                    beginAtZero: true,
-                  },
-                },
-              }}
-            />
-          </Paper>
-        </Grid>
-
-
+        </Grid>        
+       
       </Grid>
     </Box>
   );
