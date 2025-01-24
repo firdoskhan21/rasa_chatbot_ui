@@ -283,6 +283,7 @@ async function send(message) {
   $.ajax({
     url: rasa_server_url,
     type: "POST",
+    crossDomain: true,
     contentType: "application/json",
     data: JSON.stringify({ message, sender: userId }),
     success(botResponse, status) {
