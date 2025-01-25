@@ -47,6 +47,7 @@ const singleMsg=formattedMessages[0]
     url: "https://rasa-chatbot-ui.onrender.com/api/coversations/save_conversation",
     type: "POST",
     contentType: "application/json",
+    crossDomain: true,
     data: JSON.stringify({
       userId: userId,
       pattern_type: task_name,
@@ -317,6 +318,7 @@ function actionTrigger() {
   $.ajax({
     url: `https://rasa-chatbot-ui.onrender.com/api/conversations/${sender_id}/execute`,
     type: "POST",
+    crossDomain: true,
     contentType: "application/json",
     data: JSON.stringify({
       name: action_name,
@@ -354,6 +356,7 @@ function customActionTrigger() {
   $.ajax({
     url: "http://localhost:5055/webhook/",
     type: "POST",
+    crossDomain: true,
     contentType: "application/json",
     data: JSON.stringify({
       next_action: action_name,
