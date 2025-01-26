@@ -24,12 +24,12 @@ const uriPorts = {
 */
 
  const uriMappings = {
-   task1_darkpattern: "https://aff7-134-109-92-76.ngrok-free.app", //5006
-   task1_regular: "https://220c-134-109-92-76.ngrok-free.app", //5005
-   task2_darkpattern: "https://2e32-134-109-92-76.ngrok-free.app", //5007
-   task2_regular: "https://aff7-134-109-92-76.ngrok-free.app", // 5006
-   task3_darkpattern: "https://220c-134-109-92-76.ngrok-free.app", //5005
-   task3_regular: "https://2e32-134-109-92-76.ngrok-free.app", //5007
+   task1_darkpattern: "https://cbed-134-109-92-76.ngrok-free.app", //5006
+   task1_regular: "https://ccc1-134-109-92-76.ngrok-free.app", //5005
+   task2_darkpattern: "https://7a76-134-109-92-76.ngrok-free.app", //5007
+   task2_regular: "https://cbed-134-109-92-76.ngrok-free.app", // 5006
+   task3_darkpattern: "https://ccc1-134-109-92-76.ngrok-free.app", //5005
+   task3_regular: "https://7a76-134-109-92-76.ngrok-free.app", //5007
  };
 
 // const rasa_server_url = `http://localhost:${uriPorts[task_name]}/webhooks/rest/webhook`;
